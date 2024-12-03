@@ -1,9 +1,23 @@
 import Cookies from 'js-cookie'
+<<<<<<< HEAD
 import {Redirect} from 'react-router-dom'
+=======
+import {Navigate, useNavigate} from 'react-router-dom'
+>>>>>>> master
 import {Component} from 'react'
 
 import './index.css'
 
+<<<<<<< HEAD
+=======
+function withRouter(Component) {
+  return (props) => {
+    const navigate = useNavigate();
+    return <Component {...props} navigate={navigate} />;
+  };
+}
+
+>>>>>>> master
 class LoginPage extends Component {
   state = {username: '', password: '', isFail: false, errMsg: ''}
 
@@ -18,7 +32,11 @@ class LoginPage extends Component {
   checkDetails = async ev => {
     ev.preventDefault()
     const {username, password} = this.state
+<<<<<<< HEAD
     const {history} = this.props
+=======
+    const {navigate} = this.props
+>>>>>>> master
     const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',
@@ -33,7 +51,11 @@ class LoginPage extends Component {
       // console.log('jwt token :', token)
       Cookies.set('jwt_token', token, {expires: 30})
       this.setState({isFail: false})
+<<<<<<< HEAD
       history.replace('/')
+=======
+      navigate("/", {replace:true})
+>>>>>>> master
     } else {
       this.setState({isFail: true, errMsg: data.error_msg})
     }
@@ -44,7 +66,11 @@ class LoginPage extends Component {
     const {username, password, isFail, errMsg} = this.state
 
     if (token !== undefined) {
+<<<<<<< HEAD
       return <Redirect to="/" />
+=======
+      return <Navigate to="/" />
+>>>>>>> master
     }
 
     return (
@@ -104,4 +130,8 @@ class LoginPage extends Component {
   }
 }
 
+<<<<<<< HEAD
 export default LoginPage
+=======
+export default withRouter(LoginPage)
+>>>>>>> master

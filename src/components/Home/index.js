@@ -2,12 +2,16 @@ import {Link} from 'react-router-dom'
 import Header from '../Header'
 import './index.css'
 
+<<<<<<< HEAD
 export default () => (
   // const {history} = props
 
   // const gotoJobs = () => {
   //   history.replace('/jobs')
   // }
+=======
+const Home = () => (
+>>>>>>> master
 
   <div className="main-container">
     <Header />
@@ -27,3 +31,8 @@ export default () => (
     </div>
   </div>
 )
+<<<<<<< HEAD
+=======
+
+export default Home;
+>>>>>>> master

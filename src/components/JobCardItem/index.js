@@ -5,7 +5,11 @@ import {BsBriefcaseFill} from 'react-icons/bs'
 
 import './index.css'
 
+<<<<<<< HEAD
 export default props => {
+=======
+const JobCardItem =  props => {
+>>>>>>> master
   const {item} = props
   const {
     companyLogoUrl,
@@ -57,3 +61,8 @@ export default props => {
     </li>
   )
 }
+<<<<<<< HEAD
+=======
+
+export default JobCardItem;
+>>>>>>> master

@@ -1,19 +1,35 @@
 {
+<<<<<<< HEAD
   "short_name": "app_short_name",
   "name": "App_name",
   "icons": [
     {
       "src": "img/favicon.ico",
+=======
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+>>>>>>> master
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
+<<<<<<< HEAD
       "src": "img/logo192.png",
+=======
+      "src": "logo192.png",
+>>>>>>> master
       "type": "image/png",
       "sizes": "192x192"
     },
     {
+<<<<<<< HEAD
       "src": "img/logo512.png",
+=======
+      "src": "logo512.png",
+>>>>>>> master
       "type": "image/png",
       "sizes": "512x512"
     }

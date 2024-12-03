@@ -1,4 +1,8 @@
 import {Component} from 'react'
+<<<<<<< HEAD
+=======
+import {useParams} from "react-router-dom"
+>>>>>>> master
 import {FaStar, FaExternalLinkAlt} from 'react-icons/fa'
 import {MdLocationOn} from 'react-icons/md'
 import {BsBriefcaseFill} from 'react-icons/bs'
@@ -8,6 +12,16 @@ import Header from '../Header'
 import formateObject from '../formateObject'
 import './index.css'
 
+<<<<<<< HEAD
+=======
+function withRouter(Component) {
+  return (props) => {
+    const params = useParams();
+    return <Component {...props} params={params} />;
+  };
+}
+
+>>>>>>> master
 const pageStates = ['Loading', 'Success', 'Fail']
 
 class JobDetailsPage extends Component {
@@ -22,8 +36,12 @@ class JobDetailsPage extends Component {
   }
 
   fetchData = async () => {
+<<<<<<< HEAD
     const {match} = this.props
     const {params} = match
+=======
+    const {params} = this.props
+>>>>>>> master
     const {id} = params
     // const {id} = this.state
     const token = Cookies.get('jwt_token')
@@ -59,15 +77,22 @@ class JobDetailsPage extends Component {
   }
 
   renderLoader = () => (
+<<<<<<< HEAD
     <div className='fail-view-display-container'>
       <div className='loader-container' data-testid='loader'>
         <ThreeDots color='#ffffff' height='50' width='50' />
+=======
+    <div className="fail-view-display-container">
+      <div className="loader-container" data-testid="loader">
+        <ThreeDots color="#ffffff" height="50" width="50" />
+>>>>>>> master
       </div>
     </div>
   )
 
   displayFailView = () => (
     // console.log('display fail view')
+<<<<<<< HEAD
     <div className='fail-view-display-container'>
       <img
         src='https://assets.ccbp.in/frontend/react-js/failure-img.png'
@@ -79,6 +104,19 @@ class JobDetailsPage extends Component {
         We cannot seem to find the page you are looking for.
       </p>
       <button className='retry-button' type='button' onClick={this.fetchData}>
+=======
+    <div className="fail-view-display-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+        className="fail-jobs-view"
+      />
+      <h1 className="fail-view-heading">Oops! Something Went Wrong</h1>
+      <p className="fail-view-description">
+        We cannot seem to find the page you are looking for.
+      </p>
+      <button className="retry-button" type="button" onClick={this.fetchData}>
+>>>>>>> master
         Retry
       </button>
     </div>
@@ -96,6 +134,7 @@ class JobDetailsPage extends Component {
     } = item
 
     return (
+<<<<<<< HEAD
       <li className='similar-job-item'>
         <div className='logo-name-container'>
           <img
@@ -122,6 +161,34 @@ class JobDetailsPage extends Component {
             <div className='location-type'>
               <BsBriefcaseFill className='details-icon' />
               <p className='details-para'>{employmentType}</p>
+=======
+      <li className="similar-job-item">
+        <div className="logo-name-container">
+          <img
+            src={companyLogoUrl}
+            alt="similar job company logo"
+            className="company-logo"
+          />
+          <div className="title-rating-container">
+            <h1 className="title">{title}</h1>
+            <div className="rating-container">
+              <FaStar className="star-icon" />
+              <p className="rating">{rating}</p>
+            </div>
+          </div>
+        </div>
+        <div className="job-description-container">
+          <h1 className="description-heading">Description</h1>
+          <p className="job-description">{jobDescription}</p>
+          <div className="location-jobtype-container">
+            <div className="location-type">
+              <MdLocationOn className="details-icon" />
+              <p className="details-para">{location}</p>
+            </div>
+            <div className="location-type">
+              <BsBriefcaseFill className="details-icon" />
+              <p className="details-para">{employmentType}</p>
+>>>>>>> master
             </div>
           </div>
         </div>
@@ -145,6 +212,7 @@ class JobDetailsPage extends Component {
     } = jobDetails
 
     return (
+<<<<<<< HEAD
       <div className='job-details-page-container'>
         <div className='job-item-container'>
           <div className='logo-name-container'>
@@ -218,6 +286,81 @@ class JobDetailsPage extends Component {
         </div>
         <h1 className='similar-jobs-heading'>Similar Jobs</h1>
         <ul className='similar-jobs-list-container'>
+=======
+      <div className="job-details-page-container">
+        <div className="job-item-container">
+          <div className="logo-name-container">
+            <img
+              src={companyLogoUrl}
+              alt="job details company logo"
+              className="company-logo"
+            />
+            <div className="title-rating-container">
+              <h1 className="title">{title}</h1>
+              <div className="rating-container">
+                <FaStar className="star-icon" />
+                <p className="rating">{rating}</p>
+              </div>
+            </div>
+          </div>
+          <div className="job-details-container">
+            <div className="location-type-container">
+              <div className="location-type">
+                <MdLocationOn className="details-icon" />
+                <p className="details-para">{location}</p>
+              </div>
+              <div className="location-type">
+                <BsBriefcaseFill className="details-icon" />
+                <p className="details-para">{employmentType}</p>
+              </div>
+            </div>
+            <p className="package-para">{packagePerAnnum}</p>
+          </div>
+          <hr className="line" />
+          <div className="job-description-container">
+            <div className="web-link-container">
+              <h1 className="description-heading">Description</h1>
+              <div>
+                <a
+                  href={companyWebsiteUrl}
+                  target="_blank"
+                  className="web-link"
+                  rel="noreferrer"
+                >
+                  Visit <FaExternalLinkAlt className="redirect-icon" />
+                </a>
+              </div>
+            </div>
+            <p className="job-description">{jobDescription}</p>
+          </div>
+          <h1 className="description-heading">Skills</h1>
+          <ul className="skills-list-container">
+            {skills.map(ele => (
+              <li key={ele.name} className="skill-item">
+                <img
+                  src={ele.image_url}
+                  alt={ele.name}
+                  className="skill-logo"
+                />
+                <p className="skill-name">{ele.name}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="life-at-company-container">
+            <div>
+              <h1 className="description-heading">Life at Company</h1>
+              <p className="job-description">{lifeAtCompany.description}</p>
+            </div>
+            <img
+              src={lifeAtCompany.image_url}
+              alt="life at company"
+              className="life-at-company-image"
+            />
+          </div>
+        </div>
+        <h1 className="similar-jobs-heading">Similar Jobs</h1>
+        <ul className="similar-jobs-list-container">
+>>>>>>> master
           {similarJobs.map(ele => (
             <this.RenderSimilarJobs key={ele.id} item={ele} />
           ))}
@@ -248,7 +391,11 @@ class JobDetailsPage extends Component {
     const {pageView} = this.state
     // console.log('state information', this.state)
     return (
+<<<<<<< HEAD
       <div className='main-container'>
+=======
+      <div className="main-container">
+>>>>>>> master
         <Header />
         {this.renderSwitch(pageView)}
       </div>
@@ -256,4 +403,8 @@ class JobDetailsPage extends Component {
   }
 }
 
+<<<<<<< HEAD
 export default JobDetailsPage
+=======
+export default withRouter(JobDetailsPage)
+>>>>>>> master

@@ -1,4 +1,5 @@
 .header-container {
+<<<<<<< HEAD
   display: flex;
   justify-content: space-between;
   padding: 20px 50px;
@@ -45,10 +46,16 @@
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
+=======
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+>>>>>>> master
     background-color: #272727;
     font-family: 'Roboto';
     align-items: center;
   }
+<<<<<<< HEAD
   .mobile-links-container {
     display: flex;
     gap: 20px;
@@ -79,3 +86,79 @@
     margin-top: 0px;
   }
 }
+=======
+  
+  .links-container {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+  }
+  
+  .logo-header {
+    width: 130px;
+    margin-top: 0px;
+  }
+  
+  .logout-button {
+    width: fit-content;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    background-color: #6163ee;
+  }
+  
+  .mobile-links-container {
+    display: none;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #272727;
+      font-family: 'Roboto';
+      align-items: center;
+    }
+    .mobile-links-container {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      list-style-type: none;
+    }
+  
+    .mobile-logout-button {
+      background-color: transparent;
+      border: none;
+    }
+  
+    .header-icons {
+      color: white;
+      font-size: 20px;
+    }
+  
+    .links-container {
+      display: none;
+    }
+  
+    .logout-button {
+      display: none;
+    }
+  
+    .logo-header {
+      width: 120px;
+      margin-top: 0px;
+    }
+  }
+  
+>>>>>>> master

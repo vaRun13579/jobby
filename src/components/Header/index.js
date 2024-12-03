@@ -1,15 +1,27 @@
+<<<<<<< HEAD
 import {Link, withRouter} from 'react-router-dom'
+=======
+import {Link, useNavigate} from 'react-router-dom'
+>>>>>>> master
 import {AiFillHome} from 'react-icons/ai'
 import {BsBriefcaseFill} from 'react-icons/bs'
 import {FiLogOut} from 'react-icons/fi'
 import Cookies from 'js-cookie'
 import './index.css'
 
+<<<<<<< HEAD
 export default withRouter(props => {
   const {history} = props
   const logout = () => {
     Cookies.remove('jwt_token', {path: '/'})
     history.replace('/login')
+=======
+const Header = () => {
+  const navigate=useNavigate();
+  const logout = () => {
+    Cookies.remove('jwt_token', {path: '/'})
+    navigate("/login", {replace:true});
+>>>>>>> master
   }
 
   return (
@@ -61,4 +73,10 @@ export default withRouter(props => {
       </ul>
     </div>
   )
+<<<<<<< HEAD
 })
+=======
+}
+
+export default Header;
+>>>>>>> master

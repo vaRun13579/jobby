@@ -1,6 +1,10 @@
 import './index.css'
 
+<<<<<<< HEAD
 export default () => (
+=======
+const NotFound =  () => (
+>>>>>>> master
   <div className="page-not-found-container">
     <img
       src="https://assets.ccbp.in/frontend/react-js/jobby-app-not-found-img.png"
@@ -13,3 +17,8 @@ export default () => (
     </p>
   </div>
 )
+<<<<<<< HEAD
+=======
+
+export default NotFound;
+>>>>>>> master

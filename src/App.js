@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import {Route, Switch, Redirect} from 'react-router-dom'
+=======
+
+import {Route, Routes, Navigate} from 'react-router-dom'
+>>>>>>> master
 
 import ProtectedRoute from './components/ProtectedRoute'
 import Jobs from './components/Jobs'
@@ -58,6 +63,7 @@ const App = () => {
   )
 
   return (
+<<<<<<< HEAD
     <Switch>
       <ProtectedRoute exact path="/" component={Home} />
       <ProtectedRoute exact path="/jobs" component={CallJobs} />
@@ -66,6 +72,16 @@ const App = () => {
       <Route exact path="/not-found" component={NotFound} />
       <Redirect to="not-found" />
     </Switch>
+=======
+    <Routes>
+      <Route path="/" element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+      <Route path="/jobs" element={<ProtectedRoute><CallJobs/></ProtectedRoute>}/>
+      <Route path="/jobs/:id" element={<ProtectedRoute><JobDetailsPage/></ProtectedRoute>}/>
+      <Route path="/login" element={<LoginPage/>} />
+      <Route path="/not-found" element={<NotFound/>} />
+      <Route path="*" element={<Navigate to="not-found" />}/>
+    </Routes>
+>>>>>>> master
   )
 }
 

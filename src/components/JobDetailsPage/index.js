@@ -3,7 +3,7 @@ import {FaStar, FaExternalLinkAlt} from 'react-icons/fa'
 import {MdLocationOn} from 'react-icons/md'
 import {BsBriefcaseFill} from 'react-icons/bs'
 import Cookies from 'js-cookie'
-import Loader from 'react-loader-spinner'
+import {ThreeDots} from 'react-loader-spinner'
 import Header from '../Header'
 import formateObject from '../formateObject'
 import './index.css'
@@ -17,12 +17,15 @@ class JobDetailsPage extends Component {
       jobDetails: {},
       similarJobs: [],
       pageView: pageStates[0],
-      id: this.props.match.params.id,
+      // id: this.props.match.params.id,
     }
   }
 
   fetchData = async () => {
-    const {id} = this.state
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
+    // const {id} = this.state
     const token = Cookies.get('jwt_token')
     this.setState({pageView: pageStates[0]})
     const url = `https://apis.ccbp.in/jobs/${id}`
@@ -36,9 +39,14 @@ class JobDetailsPage extends Component {
       const response = await fetch(url, options)
       if (response.ok) {
         const data = await response.json()
+        const jobDetails = formateObject(data.job_details)
+        const similarJobs = data.similar_jobs.map(ele => formateObject(ele))
+        console.log('data:', data)
+        console.log('formated data - ', jobDetails)
+        console.log('similar jobs - ', similarJobs)
         this.setState({
-          jobDetails: formateObject(data.job_details),
-          similarJobs: data.similar_jobs.map(ele => formateObject(ele)),
+          jobDetails,
+          similarJobs,
           pageView: pageStates[1],
         })
       } else {
@@ -53,7 +61,7 @@ class JobDetailsPage extends Component {
   renderLoader = () => (
     <div className="fail-view-display-container">
       <div className="loader-container" data-testid="loader">
-        <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+        <ThreeDots color="#ffffff" height="50" width="50" />
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 import Cookies from 'js-cookie'
 import {Component} from 'react'
-import Loader from 'react-loader-spinner'
+import {ThreeDots} from 'react-loader-spinner'
+import formateObj from '../formateObject'
 import './index.css'
 
 class ProfileCard extends Component {
@@ -27,13 +28,13 @@ class ProfileCard extends Component {
     if (response.ok) {
       const data = await response.json()
       const details = data.profile_details
-      const {name, profile_image_url, short_bio} = details
+      const {name, profileImageUrl, shortBio} = formateObj(details)
       // console.log('success view called in profile card')
       this.setState({
         isLoading: false,
         name,
-        profileImageUrl: profile_image_url,
-        shortBio: short_bio,
+        profileImageUrl,
+        shortBio,
         view: true,
       })
     } else {
@@ -65,7 +66,7 @@ class ProfileCard extends Component {
 
   renderLoader = () => (
     <div className="loader-container" data-testid="loader">
-      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+      <ThreeDots type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 

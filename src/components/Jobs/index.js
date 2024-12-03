@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import {BsSearch} from 'react-icons/bs'
 import Cookies from 'js-cookie'
-import Loader from 'react-loader-spinner'
+import {ThreeDots} from 'react-loader-spinner'
 
 import ProfileCard from '../ProfileCard'
 import JobCardItem from '../JobCardItem'
@@ -26,7 +26,7 @@ class Jobs extends Component {
   renderLoader = () => (
     <div className="fail-view-display-container">
       <div className="loader-container" data-testid="loader">
-        <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+        <ThreeDots type="ThreeDots" color="#ffffff" height="50" width="50" />
       </div>
     </div>
   )
@@ -36,21 +36,6 @@ class Jobs extends Component {
   }
 
   updateEmployment = ev => {
-    // const {employmentTypesList} = this.props
-    // const selectedEmploymentTypeList = []
-    // employmentTypesList.forEach(ele => {
-    //   const element = document.getElementById(ele.employmentTypeId)
-    //   if (element.checked) {
-    //     selectedEmploymentTypeList.push(element.value)
-    //   }
-    // })
-    // console.log(selectedEmploymentTypeList)
-    // this.setState(
-    //   {employment: selectedEmploymentTypeList.join(',')},
-    //   this.fetchRequest,
-    // )
-
-    // const {employment} = this.state
     const {value} = ev.target
     const enquirey = employlinkList.includes(value)
     if (ev.target.checked) {
@@ -67,7 +52,8 @@ class Jobs extends Component {
     this.setState({salaryRange: ev.target.value}, this.fetchRequest)
   }
 
-  makeSearch = () => {
+  makeSearch = ev => {
+    ev.preventDefault()
     this.setState(pv => ({search: pv.tempSearch}), this.fetchRequest)
   }
 
@@ -168,9 +154,13 @@ class Jobs extends Component {
         <Header />
         <div className="jobs-layout-container">
           <div className="filters-container">
-            <div className="mobile-search-container">
+            <form
+              onSubmit={this.makeSearch}
+              className="mobile-search-container"
+            >
               <input
                 type="search"
+                aria-label="search bar"
                 value={tempSearch}
                 className="search-bar"
                 placeholder="Search"
@@ -178,13 +168,13 @@ class Jobs extends Component {
               />
               <button
                 className="search-icon-container"
-                type="button"
-                onClick={this.makeSearch}
+                type="submit"
+                aria-label="search button"
                 data-testid="searchButton"
               >
                 <BsSearch className="search-icon" />
               </button>
-            </div>
+            </form>
             <div className="profile-container">
               <ProfileCard />
             </div>
@@ -227,22 +217,24 @@ class Jobs extends Component {
             </ul>
           </div>
           <div className="jobs-display-search-container">
-            <div className="search-container">
+            <form onSubmit={this.makeSearch} className="search-container">
               <input
                 type="search"
+                aria-label="search bar"
                 value={tempSearch}
                 className="search-bar"
                 placeholder="Search"
                 onChange={this.updateSearch}
               />
               <button
+                type="submit"
+                aria-label="search button"
                 className="search-icon-container"
-                testid="searchButton"
-                onClick={this.makeSearch}
+                data-testid="searchButton"
               >
                 <BsSearch className="search-icon" />
               </button>
-            </div>
+            </form>
             {this.renderSwitch(pageStatus)}
           </div>
         </div>

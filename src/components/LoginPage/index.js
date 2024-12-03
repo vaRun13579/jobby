@@ -49,6 +49,17 @@ class LoginPage extends Component {
 
     return (
       <div className="login-page">
+        <p
+          style={{
+            color: 'white',
+            position: 'absolute',
+            top: '20px',
+            left: '20px',
+          }}
+        >
+          use this credentials for Login &#123;username: rahul; password:
+          rahul@2021&#125;, &#123;username: raja; password: raja@2021&#125;
+        </p>
         <form className="login-container" onSubmit={this.checkDetails}>
           <div className="display-logo">
             <img

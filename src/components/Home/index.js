@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import Header from '../Header'
 import './index.css'
 
-export default props => (
+export default () => (
   // const {history} = props
 
   // const gotoJobs = () => {
